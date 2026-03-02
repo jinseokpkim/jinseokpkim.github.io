@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+	<title>Jinseok P. Kim</title>
+	
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Jinseok P. Kim - Social & Cultural Psychologist, Postdoctoral Research Fellow at the University of Sussex">
+	<meta name="author" content="Jinseok P. Kim">    
+	
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+	
+	<!-- FontAwesome CDN -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+	
+	<!-- Bootstrap 5 CDN -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+
+	<style>
+		:root {
+			--theme-color: #3d5a80;
+			--theme-color-light: #e8eef4;
+			--text-color: #434e5e;
+			--text-muted: #97a4b1;
+			--heading-color: #3d5a80;
+		}
+
+		body {
+			font-family: 'Roboto', sans-serif;
+			color: var(--text-color);
+			background: #f5f5f5;
+			-webkit-font-smoothing: antialiased;
+			font-size: 14px;
+			line-height: 1.6;
+		}
+
+		a { color: var(--theme-color); text-decoration: none; }
+		a:hover { color: #2c4a6e; text-decoration: underline; }
+
+		h1, h2, h3, h4, h5, h6 { color: var(--text-color); font-weight: 700; }
+
+		.main-wrapper { background: #f5f5f5; }
+
+		.resume-wrapper { max-width: 980px; border: none; }
+
+		.theme-bg-light { background: #fff; }
+
+		.resume-name {
+			font-size: 2rem;
+			font-weight: 900;
+			letter-spacing: 0.05em;
+			color: var(--text-color);
+		}
+		.resume-tagline {
+			font-size: 1.1rem;
+			font-weight: 300;
+			color: var(--text-muted);
+		}
+		.resume-contact .resume-link {
+			color: var(--text-muted);
+			font-size: 0.85rem;
+		}
+		.resume-contact .resume-link:hover { color: var(--theme-color); }
+		.resume-contact i { color: var(--theme-color); }
+		.resume-contact li { font-size: 0.85rem; }
+
+		.resume-profile-image {
+			width: 120px;
+			height: 120px;
+			object-fit: cover;
+		}
+
+		.resume-intro p {
+			font-size: 0.92rem;
+			color: var(--text-color);
+			line-height: 1.7;
+		}
+
+		.resume-section-heading {
+			font-size: 0.85rem;
+			letter-spacing: 0.15em;
+			color: var(--heading-color);
+			border-bottom: 2px solid var(--theme-color);
+			padding-bottom: 0.5rem;
+		}
+
+		.item-title {
+			font-size: 0.95rem;
+			font-weight: 700;
+			color: var(--text-color);
+			margin-bottom: 0 !important;
+		}
+		.item-meta {
+			font-size: 0.82rem;
+			color: var(--text-muted);
+		}
+		.item-content p, .item-content li {
+			font-size: 0.88rem;
+			color: var(--text-color);
+			line-height: 1.65;
+		}
+
+		.pub-list {
+			counter-reset: pub-counter;
+			list-style: none;
+			padding-left: 0;
+		}
+		.pub-item {
+			counter-increment: pub-counter;
+			position: relative;
+			padding-left: 32px;
+			margin-bottom: 14px;
+			font-size: 0.88rem;
+			line-height: 1.65;
+		}
+		.pub-item::before {
+			content: counter(pub-counter, decimal-leading-zero) ".";
+			position: absolute;
+			left: 0;
+			font-weight: 700;
+			color: var(--theme-color);
+			font-size: 0.82rem;
+		}
+		.pub-title { font-weight: 600; }
+		.pub-journal { font-style: italic; }
+		.pub-status { font-style: italic; color: var(--text-muted); }
+		.pub-links a {
+			font-size: 0.8rem;
+			margin-right: 8px;
+			font-weight: 500;
+		}
+
+		.conf-item {
+			margin-bottom: 12px;
+			font-size: 0.88rem;
+			line-height: 1.6;
+		}
+		.conf-title { font-style: italic; }
+		.conf-venue { color: var(--text-muted); font-size: 0.82rem; }
+
+		.award-item { margin-bottom: 10px; }
+		.award-name { font-size: 0.88rem; font-weight: 600; }
+		.award-org { font-size: 0.82rem; color: var(--text-muted); }
+		.award-year { font-size: 0.82rem; color: var(--text-muted); }
+
+		.resume-aside .resume-degree-org { font-size: 0.85rem; }
+		.resume-aside .resume-degree { font-size: 0.88rem; font-weight: 600; }
+		.resume-aside .resume-degree-time { font-size: 0.8rem; }
+		.resume-aside .item-title { font-size: 0.88rem; }
+		.resume-aside li { font-size: 0.85rem; line-height: 1.6; }
+
+		.ref-item { margin-bottom: 14px; }
+		.ref-name { font-weight: 600; font-size: 0.88rem; }
+		.ref-role { font-size: 0.82rem; color: var(--text-muted); }
+		.ref-email a { font-size: 0.8rem; }
+
+		.keyword {
+			display: inline-block;
+			background: var(--theme-color-light);
+			color: var(--text-color);
+			font-size: 0.78rem;
+			padding: 2px 10px;
+			border-radius: 3px;
+			margin: 2px 4px 2px 0;
+			font-weight: 500;
+		}
+
+		.resume-footer .resume-link { color: var(--text-muted); }
+		.resume-footer .resume-link:hover { color: var(--theme-color); }
+		.footer { font-size: 0.8rem; }
+		.footer .fa-heart { color: #fb866a; }
+
+		@media (max-width: 767px) {
+			.resume-name { font-size: 1.5rem; }
+		}
+	</style>
+
+</head> 
+
+<body>
+	
+	<div class="main-wrapper">
+		<div class="container px-3 px-lg-5">
+			<article class="resume-wrapper mx-auto theme-bg-light p-5 mb-5 my-5 shadow-lg">
+				
+				<!-- ============ HEADER ============ -->
+				<div class="resume-header">
+					<div class="row align-items-center">
+						<div class="resume-title col-12 col-md-6 col-lg-8 col-xl-9">
+							<h2 class="resume-name mb-0 text-uppercase">Jinseok P. Kim</h2>
+							<div class="resume-tagline mb-3 mb-md-0">Social &amp; Cultural Psychologist</div>
+						</div>
+						<div class="resume-contact col-12 col-md-6 col-lg-4 col-xl-3">
+							<ul class="list-unstyled mb-0">
+								<li class="mb-2"><i class="fas fa-envelope fa-fw fa-lg me-2"></i><a class="resume-link" href="mailto:j.p.kim@sussex.ac.uk">j.p.kim@sussex.ac.uk</a></li>
+								<li class="mb-2"><i class="fas fa-globe fa-fw fa-lg me-2"></i><a class="resume-link" href="https://jinseokpkim.github.io">jinseokpkim.github.io</a></li>
+								<li class="mb-2"><i class="fas fa-map-marker-alt fa-fw fa-lg me-2"></i>Brighton, UK</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<hr>
+
+				<!-- ============ INTRO ============ -->
+				<div class="resume-intro py-3">
+					<div class="row align-items-center">
+						<div class="col-12 col-md-3 col-xl-2 text-center">
+						    <img class="resume-profile-image mb-3 mb-md-0 me-md-5 ms-md-0 rounded mx-auto" src="assets/images/profile.jpg" alt="Jinseok P. Kim">
+						</div>
+						
+						<div class="col text-start">
+							<p class="mb-2"><strong>What are the evolutionary and socio-ecological factors that shape cultural differences in subjective well-being?</strong> My research examines how these factors influence the content of well-being (e.g., joy vs. meaning), its predictors (e.g., inner experience vs. social approval), and modes of pursuit (e.g., material vs. social). I combine perspectives from social psychology, behavioral ecology, and evolutionary theory to understand these dynamics across cultures.</p>
+							<p class="mb-0">In my postdoctoral work on the ERC-funded HONORLOGIC project, I explored the socio-ecological drivers of honor culture (e.g., terrain ruggedness, resource scarcity/portability, law enforcement effectiveness) and how honor values shape perceptions of compromise in negotiation across interpersonal and political contexts.</p>
+						</div>
+					</div>
+				</div>
+				<hr>
+
+				<!-- ============ BODY ============ -->
+				<div class="resume-body">
+					<div class="row">
+
+						<!-- ======== MAIN COLUMN ======== -->
+						<div class="resume-main col-12 col-lg-8 col-xl-9 pe-0 pe-lg-5">
+
+							<!-- ACADEMIC POSITIONS -->
+							<section class="work-section py-3">
+								<h3 class="text-uppercase resume-section-heading mb-4">Academic Positions</h3>
+								<div class="item mb-3">
+									<div class="item-heading row align-items-center mb-2">
+										<h4 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0">Postdoctoral Research Fellow</h4>
+										<div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-start text-md-end">Sussex | Mar 2026 – Present</div>
+									</div>
+									<div class="item-content">
+										<p>School of Psychology, University of Sussex. Working with Professor Anna Rabinovich.</p>
+									</div>
+								</div>
+								<div class="item mb-3">
+									<div class="item-heading row align-items-center mb-2">
+										<h4 class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0">Postdoctoral Research Fellow — HONORLOGIC (ERC)</h4>
+										<div class="item-meta col-12 col-md-6 col-lg-4 text-muted text-start text-md-end">Sussex | Apr 2025 – Feb 2026</div>
+									</div>
+									<div class="item-content">
+										<p>Worked with Professor Ayşe Üskül, Dr Shuxian Jin, and Stephanie Gunaratne on Work Package 2 (Compromise), investigating how honor influences the perception of compromising behaviour in negotiation across interpersonal and political contexts.</p>
+									</div>
+								</div>
+							</section>
+
+							<!-- PUBLICATIONS -->
+							<section class="work-section py-3">
+								<h3 class="text-uppercase resume-section-heading mb-4">Publications</h3>
+								<div class="pub-list">
+
+									<div class="pub-item">
+										<strong>Kim, J. P.</strong>, &amp; Suh, E. M. (2024).
+										<span class="pub-title">Childhood socioeconomic status shapes beliefs about hedonic versus eudaimonic happiness: A life history approach.</span>
+										<span class="pub-journal">Journal of Happiness Studies, 25</span>, 46.
+										<div class="pub-links">
+											<a href="https://doi.org/10.1007/s10902-024-00760-9" target="_blank">[Paper]</a>
+										</div>
+									</div>
+
+									<div class="pub-item">
+										<strong>Kim, J. P.</strong>, &amp; Suh, E. M. (2024).
+										<span class="pub-title">Preference for depth versus breadth in social relationships: Childhood socioeconomic background matters.</span>
+										<span class="pub-journal">The Journal of Social Psychology, 164</span>(4), 473–487.
+										<div class="pub-links">
+											<a href="https://doi.org/10.1080/00224545.2022.2113020" target="_blank">[Paper]</a>
+										</div>
+									</div>
+
+									<div class="pub-item">
+										Pick, C. M., <strong>Kim, J. P.</strong>, Kenrick, D. T., … &amp; Varnum, M. E. W. (2022).
+										<span class="pub-title">Fundamental social motives measured across forty-two cultures in two waves.</span>
+										<span class="pub-journal">Scientific Data, 9</span>, 499.
+										<div class="pub-links">
+											<a href="https://doi.org/10.1038/s41597-022-01579-w" target="_blank">[Paper]</a>
+											<a href="https://osf.io/p9z2a/" target="_blank">[OSF]</a>
+										</div>
+									</div>
+
+									<div class="pub-item">
+										<strong>Kim, J. P.</strong>, Üskül, A. K., et al.
+										<span class="pub-title">Honor values and perceptions of compromise in interpersonal, political, and economic contexts.</span>
+										<span class="pub-status">Manuscript in preparation.</span>
+									</div>
+
+									<div class="pub-item">
+										<strong>Kim, J. P.</strong>, &amp; Suh, E. M.
+										<span class="pub-title">Ecological relatedness and the personal freedom–happiness link across cultures.</span>
+										<span class="pub-status">Manuscript in preparation.</span>
+									</div>
+
+									<div class="pub-item">
+										<strong>Kim, J. P.</strong>
+										<span class="pub-title">Solo dining and subjective well-being in South Korea.</span>
+										<span class="pub-status">Under review.</span>
+									</div>
+
+								</div>
+							</section>
+
+							<!-- CONFERENCE PRESENTATIONS -->
+							<section class="work-section py-3">
+								<h3 class="text-uppercase resume-section-heading mb-4">Conference Presentations</h3>
+
+								<div class="conf-item">
+									<strong>Kim, J. P.</strong> (2026).
+									<span class="conf-title">HONORLOGIC project findings on honor values and social perception.</span>
+									<div class="conf-venue">Society for Personality and Social Psychology (SPSP) Conference.</div>
+								</div>
+
+								<div class="conf-item">
+									<strong>Kim, J. P.</strong> (2025).
+									<span class="conf-title">Ecological relatedness and subjective well-being.</span>
+									<div class="conf-venue">Yonsei University Dissertation Defense, Seoul, South Korea.</div>
+								</div>
+
+							</section>
+
+							<!-- GRANTS & AWARDS -->
+							<section class="work-section py-3">
+								<h3 class="text-uppercase resume-section-heading mb-4">Grants &amp; Awards</h3>
+
+								<div class="award-item d-flex justify-content-between">
+									<div>
+										<div class="award-name">Korean Global Research Fellowship Applicant</div>
+										<div class="award-org">With Professor Helga Dittmar (overseas advisor), University of Sussex</div>
+									</div>
+									<div class="award-year">2026</div>
+								</div>
+
+								<div class="award-item d-flex justify-content-between">
+									<div>
+										<div class="award-name">Harry and Pola Triandis Doctoral Thesis Award — Applicant</div>
+										<div class="award-org">International Association for Cross-Cultural Psychology</div>
+									</div>
+									<div class="award-year">2025</div>
+								</div>
+
+								<div class="award-item d-flex justify-content-between">
+									<div>
+										<div class="award-name">Principal Investigator, Korea Research Foundation Grant</div>
+										<div class="award-org">Korea Research Foundation</div>
+									</div>
+									<div class="award-year"><!-- ADD YEAR --></div>
+								</div>
+
+								<div class="award-item d-flex justify-content-between">
+									<div>
+										<div class="award-name">Brain Korea 21+ Scholarship</div>
+										<div class="award-org">Ministry of Science, ICT, and Future Planning</div>
+									</div>
+									<div class="award-year"><!-- ADD YEARS --></div>
+								</div>
+
+							</section>
+
+							<!-- REFERENCES -->
+							<section class="work-section py-3">
+								<h3 class="text-uppercase resume-section-heading mb-4">References</h3>
+								<div class="row">
+									<div class="col-md-6 mb-3">
+										<div class="ref-item">
+											<div class="ref-name">Eunkook M. Suh</div>
+											<div class="ref-role">Professor of Psychology, Yonsei University</div>
+											<div class="ref-email"><a href="mailto:esuh@yonsei.ac.kr">esuh@yonsei.ac.kr</a></div>
+										</div>
+									</div>
+									<div class="col-md-6 mb-3">
+										<div class="ref-item">
+											<div class="ref-name">Ayşe K. Üskül</div>
+											<div class="ref-role">Professor of Psychology, University of Sussex</div>
+											<div class="ref-email"><a href="mailto:"><!-- ADD EMAIL --></a></div>
+										</div>
+									</div>
+									<div class="col-md-6 mb-3">
+										<div class="ref-item">
+											<div class="ref-name">Anna Rabinovich</div>
+											<div class="ref-role">Professor of Psychology, University of Sussex</div>
+											<div class="ref-email"><a href="mailto:"><!-- ADD EMAIL --></a></div>
+										</div>
+									</div>
+									<div class="col-md-6 mb-3">
+										<div class="ref-item">
+											<div class="ref-name">Helga Dittmar</div>
+											<div class="ref-role">Professor of Psychology, University of Sussex</div>
+											<div class="ref-email"><a href="mailto:"><!-- ADD EMAIL --></a></div>
+										</div>
+									</div>
+								</div>
+							</section>
+
+						</div><!--//resume-main-->
+
+						<!-- ======== SIDEBAR ======== -->
+						<aside class="resume-aside col-12 col-lg-4 col-xl-3 px-lg-4 pb-lg-4">
+
+							<!-- Education -->
+							<section class="education-section py-3">
+								<h3 class="text-uppercase resume-section-heading mb-4">Education</h3>
+								<ul class="list-unstyled resume-education-list">
+									<li class="mb-3">
+										<div class="resume-degree font-weight-bold">Ph.D. Social Psychology</div>
+										<div class="resume-degree-org text-muted">Yonsei University</div>
+										<div class="resume-degree-time text-muted">2019 – 2025</div>
+										<div class="text-muted" style="font-size:0.8rem; font-style:italic;">Advisor: Prof. Eunkook M. Suh</div>
+									</li>
+									<li class="mb-3">
+										<div class="resume-degree font-weight-bold">M.A. Social Psychology</div>
+										<div class="resume-degree-org text-muted">Yonsei University</div>
+										<div class="text-muted" style="font-size:0.8rem; font-style:italic;">Advisor: Prof. Eunkook M. Suh</div>
+									</li>
+									<li>
+										<div class="resume-degree font-weight-bold">B.A. Psychology &amp; Social Behavior</div>
+										<div class="resume-degree-org text-muted">University of California, Irvine</div>
+									</li>
+								</ul>
+							</section>
+
+							<!-- Research Interests -->
+							<section class="skills-section py-3">
+								<h3 class="text-uppercase resume-section-heading mb-4">Research Interests</h3>
+								<div>
+									<span class="keyword">Culture &amp; Well-Being</span>
+									<span class="keyword">Socioecology</span>
+									<span class="keyword">Honor Culture</span>
+									<span class="keyword">Kinship &amp; Relatedness</span>
+									<span class="keyword">Behavioral Ecology</span>
+									<span class="keyword">Cross-Cultural Psychology</span>
+									<span class="keyword">Materialism</span>
+								</div>
+							</section>
+
+							<!-- Methods -->
+							<section class="skills-section py-3">
+								<h3 class="text-uppercase resume-section-heading mb-4">Methods</h3>
+								<div class="item">
+									<h4 class="item-title">Quantitative</h4>
+									<ul class="list-unstyled resume-skills-list">
+										<li class="mb-1">Multilevel modeling</li>
+										<li class="mb-1">Cross-cultural survey design</li>
+										<li class="mb-1">Large-scale secondary data analysis</li>
+										<li class="mb-1">Meta-analysis</li>
+										<li class="mb-1">Structural equation modeling</li>
+									</ul>
+								</div>
+								<div class="item mt-3">
+									<h4 class="item-title">Software</h4>
+									<ul class="list-unstyled resume-skills-list">
+										<li class="mb-1">R</li>
+										<li class="mb-1">SPSS</li>
+										<li class="mb-1">Mplus</li>
+										<li class="mb-1">Qualtrics</li>
+									</ul>
+								</div>
+							</section>
+
+							<!-- Languages -->
+							<section class="skills-section py-3">
+								<h3 class="text-uppercase resume-section-heading mb-4">Languages</h3>
+								<ul class="list-unstyled resume-lang-list">
+									<li class="mb-2">Korean <span class="text-muted">(Native)</span></li>
+									<li>English <span class="text-muted">(Fluent)</span></li>
+								</ul>
+							</section>
+
+							<!-- Links -->
+							<section class="skills-section py-3">
+								<h3 class="text-uppercase resume-section-heading mb-4">Links</h3>
+								<ul class="list-unstyled">
+									<li class="mb-2"><i class="fas fa-graduation-cap fa-fw me-2" style="color:var(--theme-color)"></i><a href="https://scholar.google.com/citations?user=8ar3j8QAAAAJ&hl=en" target="_blank">Google Scholar</a></li>
+									<li class="mb-2"><i class="fab fa-orcid fa-fw me-2" style="color:var(--theme-color)"></i><a href="https://orcid.org/0000-0003-4095-7336" target="_blank">ORCID</a></li>
+									<li class="mb-2"><i class="fab fa-researchgate fa-fw me-2" style="color:var(--theme-color)"></i><a href="https://www.researchgate.net/scientific-contributions/Jinseok-P-Kim-2228411725" target="_blank">ResearchGate</a></li>
+									<li class="mb-2"><i class="fas fa-university fa-fw me-2" style="color:var(--theme-color)"></i><a href="https://profiles.sussex.ac.uk/p659001-jinseok-kim" target="_blank">Sussex Profile</a></li>
+								</ul>
+							</section>
+
+						</aside>
+					</div><!--//row-->
+				</div><!--//resume-body-->
+				<hr>
+
+				<!-- ============ FOOTER ============ -->
+				<div class="resume-footer text-center">
+					<ul class="resume-social-list list-inline mx-auto mb-0 d-inline-block text-muted">
+						<li class="list-inline-item mb-lg-0 me-3"><a class="resume-link" href="https://scholar.google.com/citations?user=8ar3j8QAAAAJ&hl=en" target="_blank"><i class="fas fa-graduation-cap fa-2x me-2" data-fa-transform="down-4"></i><span class="d-none d-lg-inline-block text-muted">Google Scholar</span></a></li>
+						<li class="list-inline-item mb-lg-0 me-3"><a class="resume-link" href="https://orcid.org/0000-0003-4095-7336" target="_blank"><i class="fab fa-orcid fa-2x me-2" data-fa-transform="down-4"></i><span class="d-none d-lg-inline-block text-muted">ORCID</span></a></li>
+						<li class="list-inline-item mb-lg-0 me-lg-3"><a class="resume-link" href="https://www.researchgate.net/scientific-contributions/Jinseok-P-Kim-2228411725" target="_blank"><i class="fab fa-researchgate fa-2x me-2" data-fa-transform="down-4"></i><span class="d-none d-lg-inline-block text-muted">ResearchGate</span></a></li>
+					</ul>
+				</div>
+
+			</article>
+		</div><!--//container-->
+		
+		<footer class="footer text-center py-4">
+			<small class="copyright text-muted">Designed with <span class="sr-only">love</span><i class="fas fa-heart"></i> by <a class="theme-link" href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> · Adapted by Jinseok P. Kim</small>
+		</footer>
+		
+	</div><!--//main-wrapper-->
+
+</body>
+</html>
