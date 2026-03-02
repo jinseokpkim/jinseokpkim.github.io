@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jinseok P. Kim</title>
+    <meta name="description" content="Jinseok P. Kim - Social & Cultural Psychologist, Postdoctoral Research Fellow at the University of Sussex">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #faf9f7;
+            --color-text: #2c2c2c;
+            --color-text-light: #5a5a5a;
+            --color-text-lighter: #888;
+            --color-accent: #3d5a80;
+            --color-accent-light: #5b7ea1;
+            --color-border: #e0ddd8;
+            --color-section-bg: #f3f1ed;
+            --color-white: #ffffff;
+            --font-serif: 'Source Serif 4', Georgia, serif;
+            --font-sans: 'Source Sans 3', -apple-system, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            line-height: 1.7;
+            font-weight: 400;
+            font-size: 15.5px;
+        }
+
+        a {
+            color: var(--color-accent);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--color-accent-light);
+        }
+
+        /* ---- LAYOUT ---- */
+        .page-wrapper {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            min-height: 100vh;
+        }
+
+        /* ---- SIDEBAR ---- */
+        .sidebar {
+            background-color: var(--color-accent);
+            color: #fff;
+            padding: 48px 32px 40px;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .profile-photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255,255,255,0.25);
+            margin: 0 auto 24px;
+            display: block;
+        }
+
+        .profile-name {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 4px;
+            letter-spacing: 0.01em;
+        }
+
+        .profile-tagline {
+            font-size: 0.88rem;
+            text-align: center;
+            opacity: 0.82;
+            font-weight: 300;
+            margin-bottom: 28px;
+            line-height: 1.5;
+        }
+
+        .sidebar-links {
+            list-style: none;
+            margin-bottom: auto;
+        }
+
+        .sidebar-links li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar-links a {
+            color: rgba(255,255,255,0.85);
+            font-size: 0.88rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.2s;
+        }
+
+        .sidebar-links a:hover {
+            color: #fff;
+        }
+
+        .sidebar-links .link-icon {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+            opacity: 0.7;
+        }
+
+        .sidebar-section-title {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            opacity: 0.55;
+            margin-bottom: 12px;
+            margin-top: 28px;
+            font-weight: 600;
+        }
+
+        .sidebar-nav {
+            list-style: none;
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .sidebar-nav li {
+            margin-bottom: 6px;
+        }
+
+        .sidebar-nav a {
+            color: rgba(255,255,255,0.75);
+            font-size: 0.82rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            transition: color 0.2s;
+        }
+
+        .sidebar-nav a:hover {
+            color: #fff;
+        }
+
+        .sidebar-footer {
+            margin-top: 28px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255,255,255,0.12);
+            font-size: 0.72rem;
+            opacity: 0.45;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        /* ---- MAIN CONTENT ---- */
+        .main-content {
+            padding: 56px 64px 80px;
+            max-width: 820px;
+        }
+
+        /* Section headings */
+        .section {
+            margin-bottom: 48px;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--color-accent);
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--color-border);
+            letter-spacing: 0.01em;
+        }
+
+        /* ---- ABOUT / BIO ---- */
+        .bio p {
+            margin-bottom: 14px;
+            color: var(--color-text);
+        }
+
+        .bio p:last-child {
+            margin-bottom: 0;
+        }
+
+        .research-keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .keyword {
+            background: var(--color-section-bg);
+            color: var(--color-text-light);
+            font-size: 0.8rem;
+            padding: 4px 12px;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+
+        /* ---- POSITIONS / EDUCATION ---- */
+        .entry {
+            margin-bottom: 20px;
+        }
+
+        .entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .entry-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--color-text);
+        }
+
+        .entry-org {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+        }
+
+        .entry-meta {
+            font-size: 0.82rem;
+            color: var(--color-text-lighter);
+            margin-top: 2px;
+        }
+
+        .entry-detail {
+            font-size: 0.88rem;
+            color: var(--color-text-light);
+            margin-top: 4px;
+            line-height: 1.6;
+        }
+
+        /* ---- PUBLICATIONS ---- */
+        .pub-list {
+            counter-reset: pub-counter;
+        }
+
+        .pub-item {
+            margin-bottom: 18px;
+            padding-left: 36px;
+            position: relative;
+            font-size: 0.9rem;
+            line-height: 1.65;
+            color: var(--color-text);
+        }
+
+        .pub-item::before {
+            counter-increment: pub-counter;
+            content: counter(pub-counter, decimal-leading-zero) ".";
+            position: absolute;
+            left: 0;
+            font-weight: 600;
+            color: var(--color-accent);
+            font-size: 0.82rem;
+        }
+
+        .pub-item .pub-title {
+            font-weight: 600;
+        }
+
+        .pub-item .pub-journal {
+            font-style: italic;
+        }
+
+        .pub-item .pub-status {
+            color: var(--color-text-lighter);
+            font-style: italic;
+        }
+
+        .pub-links {
+            margin-top: 4px;
+        }
+
+        .pub-links a {
+            font-size: 0.8rem;
+            margin-right: 10px;
+            font-weight: 500;
+        }
+
+        /* ---- CONFERENCES ---- */
+        .conf-item {
+            margin-bottom: 14px;
+            font-size: 0.88rem;
+            line-height: 1.6;
+            color: var(--color-text);
+        }
+
+        .conf-item .conf-title {
+            font-style: italic;
+        }
+
+        .conf-venue {
+            color: var(--color-text-lighter);
+            font-size: 0.82rem;
+        }
+
+        /* ---- AWARDS ---- */
+        .award-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+            gap: 16px;
+        }
+
+        .award-name {
+            font-size: 0.9rem;
+            color: var(--color-text);
+        }
+
+        .award-org {
+            font-size: 0.82rem;
+            color: var(--color-text-lighter);
+        }
+
+        .award-year {
+            font-size: 0.82rem;
+            color: var(--color-text-lighter);
+            flex-shrink: 0;
+        }
+
+        /* ---- SKILLS ---- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .skill-group h4 {
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--color-text-lighter);
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .skill-group p {
+            font-size: 0.88rem;
+            color: var(--color-text-light);
+            line-height: 1.6;
+        }
+
+        /* ---- REFERENCES ---- */
+        .ref-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .ref-item {
+            font-size: 0.88rem;
+        }
+
+        .ref-name {
+            font-weight: 600;
+            color: var(--color-text);
+        }
+
+        .ref-role {
+            color: var(--color-text-light);
+            font-size: 0.82rem;
+            line-height: 1.5;
+        }
+
+        .ref-email {
+            font-size: 0.8rem;
+            margin-top: 2px;
+        }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 900px) {
+            .page-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: relative;
+                height: auto;
+                padding: 36px 24px;
+            }
+
+            .main-content {
+                padding: 40px 24px 60px;
+            }
+
+            .skills-grid,
+            .ref-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .main-content {
+                padding: 32px 18px 48px;
+            }
+
+            .award-item {
+                flex-direction: column;
+                gap: 2px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+
+        <!-- ======== SIDEBAR ======== -->
+        <aside class="sidebar">
+            <!-- REPLACE: swap src with your own photo, e.g. "assets/photo.jpg" -->
+            <img src="assets/photo.jpg" alt="Jinseok P. Kim" class="profile-photo"
+                 onerror="this.style.background='rgba(255,255,255,0.15)'; this.style.display='block';">
+
+            <div class="profile-name">Jinseok P. Kim</div>
+            <div class="profile-tagline">Social &amp; Cultural Psychologist<br>Postdoctoral Research Fellow</div>
+
+            <div class="sidebar-section-title">Contact</div>
+            <ul class="sidebar-links">
+                <li>
+                    <a href="mailto:p.j.kim@sussex.ac.uk">
+                        <svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        p.j.kim@sussex.ac.uk
+                    </a>
+                </li>
+                <li>
+                    <a href="https://scholar.google.com/citations?user=8ar3j8QAAAAJ&hl=en" target="_blank" rel="noopener">
+                        <svg class="link-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+                        Google Scholar
+                    </a>
+                </li>
+                <li>
+                    <a href="https://orcid.org/0000-0003-4095-7336" target="_blank" rel="noopener">
+                        <svg class="link-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378a.862.862 0 1 1 0 1.724.862.862 0 0 1 0-1.724zM8.05 7.828H6.688v10.345h1.363V7.828zm3.702 0h-1.362v10.345h1.362v-5.86c0-1.47.95-2.483 2.387-2.483 1.51 0 2.132 1.013 2.132 2.483v5.86h1.362V9.83c0-2.132-1.362-3.276-3.218-3.276-1.362 0-2.312.673-2.663 1.673V7.828z"/></svg>
+                        ORCID
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.researchgate.net/scientific-contributions/Jinseok-P-Kim-2228411725" target="_blank" rel="noopener">
+                        <svg class="link-icon" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">R</text></svg>
+                        ResearchGate
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="sidebar-nav">
+                <li><a href="#about">About</a></li>
+                <li><a href="#positions">Positions</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#conferences">Conferences</a></li>
+                <li><a href="#grants">Grants &amp; Awards</a></li>
+                <li><a href="#skills">Skills &amp; Methods</a></li>
+                <li><a href="#references">References</a></li>
+            </ul>
+
+            <div class="sidebar-footer">
+                &copy; 2026 Jinseok P. Kim<br>
+                Adapted from a template by <a href="http://themes.3rdwavemedia.com" target="_blank" style="color: rgba(255,255,255,0.6);">Xiaoying Riley</a>
+            </div>
+        </aside>
+
+        <!-- ======== MAIN CONTENT ======== -->
+        <main class="main-content">
+
+            <!-- ABOUT -->
+            <section id="about" class="section">
+                <h2 class="section-title">About</h2>
+                <div class="bio">
+                    <p>
+                        <strong>What are the evolutionary and socio-ecological factors that shape cultural differences in subjective well-being?</strong>
+                        My research examines how these factors influence the content of well-being (e.g., joy vs. meaning), its predictors (e.g., inner experience vs. social approval), and modes of pursuit (e.g., material vs. social). I combine perspectives from social psychology, behavioral ecology, and evolutionary theory to understand these dynamics across cultures.
+                    </p>
+                    <p>
+                        My doctoral work investigated how ecological relatedness — the degree to which family ties and kinship intensity characterize a society — shapes the relationship between personal freedom and happiness. I showed that the things that make people happy, and the freedoms they value, differ systematically across ecologies with varying levels of kinship intensity.
+                    </p>
+                    <p>
+                        In my postdoctoral work on the ERC-funded HONORLOGIC project, I explored the socio-ecological drivers of honor culture (e.g., terrain ruggedness, resource scarcity/portability, law enforcement effectiveness) and how honor values shape perceptions of compromise in negotiation across interpersonal and political contexts. I am also pursuing research on materialism and well-being through cross-cultural meta-analysis.
+                    </p>
+                    <div class="research-keywords">
+                        <span class="keyword">Culture &amp; Well-Being</span>
+                        <span class="keyword">Socioecology</span>
+                        <span class="keyword">Honor Culture</span>
+                        <span class="keyword">Kinship &amp; Relatedness</span>
+                        <span class="keyword">Behavioral Ecology</span>
+                        <span class="keyword">Cross-Cultural Psychology</span>
+                        <span class="keyword">Materialism</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- POSITIONS -->
+            <section id="positions" class="section">
+                <h2 class="section-title">Academic Positions</h2>
+
+                <div class="entry">
+                    <div class="entry-title">Postdoctoral Research Fellow</div>
+                    <div class="entry-org">School of Psychology, University of Sussex</div>
+                    <div class="entry-meta">Brighton, UK &middot; March 2026 – Present</div>
+                    <div class="entry-detail">Working with Professor Anna Rabinovich.</div>
+                </div>
+
+                <div class="entry">
+                    <div class="entry-title">Postdoctoral Research Fellow — HONORLOGIC (ERC)</div>
+                    <div class="entry-org">School of Psychology, University of Sussex</div>
+                    <div class="entry-meta">Brighton, UK &middot; April 2025 – February 2026</div>
+                    <div class="entry-detail">Worked with Professor Ayşe Üskül, Dr Shuxian Jin, and Stephanie Gunaratne on Work Package 2 (Compromise), investigating how honor influences the perception of compromising behaviour in negotiation across interpersonal and political contexts.</div>
+                </div>
+            </section>
+
+            <!-- EDUCATION -->
+            <section id="education" class="section">
+                <h2 class="section-title">Education</h2>
+
+                <div class="entry">
+                    <div class="entry-title">Ph.D. Social Psychology</div>
+                    <div class="entry-org">Yonsei University, Seoul, South Korea</div>
+                    <div class="entry-meta">2019 – 2025 &middot; Advisor: Professor Eunkook M. Suh</div>
+                    <div class="entry-detail">Dissertation: <em>Ecological Relatedness and Subjective Well-Being</em></div>
+                </div>
+
+                <div class="entry">
+                    <div class="entry-title">M.A. Social Psychology</div>
+                    <div class="entry-org">Yonsei University, Seoul, South Korea</div>
+                    <div class="entry-meta">Advisor: Professor Eunkook M. Suh</div>
+                </div>
+
+                <div class="entry">
+                    <div class="entry-title">B.A. Psychology and Social Behavior</div>
+                    <div class="entry-org">University of California, Irvine, USA</div>
+                </div>
+            </section>
+
+            <!-- PUBLICATIONS -->
+            <section id="publications" class="section">
+                <h2 class="section-title">Publications</h2>
+                <div class="pub-list">
+
+                    <!-- ADD YOUR PUBLICATIONS HERE — numbered automatically via CSS -->
+                    <!-- Copy the block below for each publication -->
+
+                    <div class="pub-item">
+                        <strong>Kim, J. P.</strong>, &amp; Suh, E. M. (2024).
+                        <span class="pub-title">Childhood socioeconomic status shapes beliefs about hedonic versus eudaimonic happiness: A life history approach.</span>
+                        <span class="pub-journal">Journal of Happiness Studies, 25</span>, 46.
+                        <div class="pub-links">
+                            <a href="https://doi.org/10.1007/s10902-024-00760-9" target="_blank">[Paper]</a>
+                        </div>
+                    </div>
+
+                    <div class="pub-item">
+                        <strong>Kim, J. P.</strong>, &amp; Suh, E. M. (2024).
+                        <span class="pub-title">Preference for depth versus breadth in social relationships: Childhood socioeconomic background matters.</span>
+                        <span class="pub-journal">The Journal of Social Psychology, 164</span>(4), 473–487.
+                        <div class="pub-links">
+                            <a href="https://doi.org/10.1080/00224545.2022.2113020" target="_blank">[Paper]</a>
+                        </div>
+                    </div>
+
+                    <div class="pub-item">
+                        Pick, C. M., <strong>Kim, J. P.</strong>, Kenrick, D. T., … &amp; Varnum, M. E. W. (2022).
+                        <span class="pub-title">Fundamental social motives measured across forty-two cultures in two waves.</span>
+                        <span class="pub-journal">Scientific Data, 9</span>, 499.
+                        <div class="pub-links">
+                            <a href="https://doi.org/10.1038/s41597-022-01579-w" target="_blank">[Paper]</a>
+                            <a href="https://osf.io/p9z2a/" target="_blank">[OSF]</a>
+                        </div>
+                    </div>
+
+                    <div class="pub-item">
+                        <strong>Kim, J. P.</strong>, Üskül, A. K., et al.
+                        <span class="pub-title">Honor values and perceptions of compromise in interpersonal, political, and economic contexts.</span>
+                        <span class="pub-status">Manuscript in preparation.</span>
+                    </div>
+
+                    <div class="pub-item">
+                        <strong>Kim, J. P.</strong>, &amp; Suh, E. M.
+                        <span class="pub-title">Ecological relatedness and the personal freedom–happiness link across cultures.</span>
+                        <span class="pub-status">Manuscript in preparation.</span>
+                    </div>
+
+                    <div class="pub-item">
+                        <strong>Kim, J. P.</strong>
+                        <span class="pub-title">Solo dining and subjective well-being in South Korea.</span>
+                        <span class="pub-status">Under review.</span>
+                    </div>
+
+                    <!-- 
+                    TEMPLATE — copy and edit for each publication:
+                    
+                    <div class="pub-item">
+                        <strong>Kim, J. P.</strong>, Author, B., &amp; Author, C. (2025).
+                        <span class="pub-title">Title of the paper.</span>
+                        <span class="pub-journal">Journal Name, Volume</span>(Issue), Pages.
+                        <div class="pub-links">
+                            <a href="#">[Paper]</a>
+                            <a href="#">[OSF]</a>
+                        </div>
+                    </div>
+                    -->
+
+                </div>
+            </section>
+
+            <!-- CONFERENCES -->
+            <section id="conferences" class="section">
+                <h2 class="section-title">Conference Presentations</h2>
+
+                <div class="conf-item">
+                    <strong>Kim, J. P.</strong> (2026).
+                    <span class="conf-title">HONORLOGIC project findings on honor values and social perception.</span>
+                    <div class="conf-venue">Society for Personality and Social Psychology (SPSP) Conference.</div>
+                </div>
+
+                <div class="conf-item">
+                    <strong>Kim, J. P.</strong> (2025).
+                    <span class="conf-title">Ecological relatedness and subjective well-being.</span>
+                    <div class="conf-venue">Yonsei University Dissertation Defense, Seoul, South Korea.</div>
+                </div>
+
+                <!-- 
+                TEMPLATE:
+                <div class="conf-item">
+                    <strong>Kim, J. P.</strong>, Author, B. (Year).
+                    <span class="conf-title">Title of presentation.</span>
+                    <div class="conf-venue">Conference Name, City, Country.</div>
+                </div>
+                -->
+
+            </section>
+
+            <!-- GRANTS & AWARDS -->
+            <section id="grants" class="section">
+                <h2 class="section-title">Grants &amp; Awards</h2>
+
+                <div class="award-item">
+                    <div>
+                        <div class="award-name">Korean Global Research Fellowship Applicant</div>
+                        <div class="award-org">With Professor Helga Dittmar (overseas advisor), University of Sussex</div>
+                    </div>
+                    <div class="award-year">2026</div>
+                </div>
+
+                <div class="award-item">
+                    <div>
+                        <div class="award-name">Harry and Pola Triandis Doctoral Thesis Award — Applicant</div>
+                        <div class="award-org">International Association for Cross-Cultural Psychology</div>
+                    </div>
+                    <div class="award-year">2025</div>
+                </div>
+
+                <div class="award-item">
+                    <div>
+                        <div class="award-name">Principal Investigator, Korea Research Foundation Grant</div>
+                        <div class="award-org">Korea Research Foundation</div>
+                    </div>
+                    <div class="award-year"><!-- ADD YEAR --></div>
+                </div>
+
+                <div class="award-item">
+                    <div>
+                        <div class="award-name">Brain Korea 21+ Scholarship</div>
+                        <div class="award-org">Ministry of Science, ICT, and Future Planning</div>
+                    </div>
+                    <div class="award-year"><!-- ADD YEARS --></div>
+                </div>
+
+                <!-- 
+                TEMPLATE:
+                <div class="award-item">
+                    <div>
+                        <div class="award-name">Award Name</div>
+                        <div class="award-org">Granting Organization</div>
+                    </div>
+                    <div class="award-year">2025</div>
+                </div>
+                -->
+            </section>
+
+            <!-- SKILLS & METHODS -->
+            <section id="skills" class="section">
+                <h2 class="section-title">Skills &amp; Methods</h2>
+                <div class="skills-grid">
+                    <div class="skill-group">
+                        <h4>Quantitative Methods</h4>
+                        <p>Multilevel modeling, cross-cultural survey design, large-scale secondary data analysis (e.g., BRFSS), meta-analysis, structural equation modeling</p>
+                    </div>
+                    <div class="skill-group">
+                        <h4>Software</h4>
+                        <p>R, SPSS, Mplus, Qualtrics</p>
+                    </div>
+                    <div class="skill-group">
+                        <h4>Languages</h4>
+                        <p>Korean (native), English (fluent)</p>
+                    </div>
+                    <div class="skill-group">
+                        <h4>Research Areas</h4>
+                        <p>Social &amp; cultural psychology, behavioral ecology, evolutionary psychology, subjective well-being, honor culture</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- REFERENCES -->
+            <section id="references" class="section">
+                <h2 class="section-title">References</h2>
+                <div class="ref-grid">
+                    <div class="ref-item">
+                        <div class="ref-name">Eunkook M. Suh</div>
+                        <div class="ref-role">Professor of Psychology<br>Yonsei University</div>
+                        <div class="ref-email"><a href="mailto:esuh@yonsei.ac.kr">esuh@yonsei.ac.kr</a></div>
+                    </div>
+                    <div class="ref-item">
+                        <div class="ref-name">Ayşe K. Üskül</div>
+                        <div class="ref-role">Professor of Psychology<br>University of Sussex</div>
+                        <div class="ref-email"><a href="mailto:<!-- ADD EMAIL -->"><!-- ADD EMAIL --></a></div>
+                    </div>
+                    <div class="ref-item">
+                        <div class="ref-name">Anna Rabinovich</div>
+                        <div class="ref-role">Professor of Psychology<br>University of Sussex</div>
+                        <div class="ref-email"><a href="mailto:<!-- ADD EMAIL -->"><!-- ADD EMAIL --></a></div>
+                    </div>
+                    <div class="ref-item">
+                        <div class="ref-name">Helga Dittmar</div>
+                        <div class="ref-role">Professor of Psychology<br>University of Sussex</div>
+                        <div class="ref-email"><a href="mailto:<!-- ADD EMAIL -->"><!-- ADD EMAIL --></a></div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+</body>
+</html>
